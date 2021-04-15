@@ -1,6 +1,6 @@
 
 namespace py api
 
-service MessageService extends shared.SharedService {
+service MessageService extends {
     void sayHello(1:string name);
 }
