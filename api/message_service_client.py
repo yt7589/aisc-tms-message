@@ -7,6 +7,8 @@ class MessageServiceClient(object):
         self.name = 'api.MessageServiceClient'
 
     def send_email(self, email_addr, msg):
+        host = 'localhost'
+        port = '9900'
         socket = TSocket.TSocket(host, port)
         protocol = TBinaryProtocol(transport)
         client = MessageServiceApi.Client(protocol)
