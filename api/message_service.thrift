@@ -1,6 +1,6 @@
 
 namespace py api
 
-service MessageService extends {
+service MessageService {
     void sayHello(1:string name);
 }
