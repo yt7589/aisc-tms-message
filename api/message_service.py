@@ -12,7 +12,7 @@ class MessageService(object):
     def startup(self):
         print('启动Thrift消息服务器')
         processor = MessageServiceApi.Processor(self)
-        transport = TSocket.TServerSocket('localhost', '9090')
+        transport = TSocket.TServerSocket('localhost', '9900')
         tfactory = TTransport.TFramedTransportFactory()
         pfactory = TBinaryProtocol.TBinaryProtocolFactory()
         server = TServer.TSimpleServer(processor, transport, tfactory, pfactory)
