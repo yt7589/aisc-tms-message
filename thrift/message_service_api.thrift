@@ -1,6 +1,6 @@
 
 namespace py api
-namespace py java com.cszjkj.aisc.aisc_tms_message
+namespace java com.cszjkj.aisc.aisc_tms_message
 
 service MessageServiceApi {
     bool send_sms(1:string mobile_phone, 2:string msg);
