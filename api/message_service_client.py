@@ -2,6 +2,7 @@
 from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
+from api import MessageServiceApi
 
 class MessageServiceClient(object):
     def __init__(self):
