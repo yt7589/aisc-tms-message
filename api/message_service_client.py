@@ -12,7 +12,7 @@ class MessageServiceClient(object):
         port = '9900'
         socket = TSocket.TSocket(host, port)
         transport = TTransport.TFramedTransport(socket)
-        protocol = TBinaryProtocol(transport)
+        protocol = TBinaryProtocol.TBinaryProtocol(transport)
         client = MessageServiceApi.Client(protocol)
         transport.open()
         client.send_email(email_addr, msg)
