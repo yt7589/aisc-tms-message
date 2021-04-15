@@ -28,6 +28,7 @@ class MessageService(object):
          - msg 消息内容
         """
         print('向{0}发送消息：{1};'.format(mobile_phone, msg))
+        return True
 
     def send_email(self, email_addr, msg):
         """
@@ -37,3 +38,4 @@ class MessageService(object):
          - msg 消息内容
         """
         print('向{0}发送邮件：{1};'.format(email_addr, msg))
+        return True
