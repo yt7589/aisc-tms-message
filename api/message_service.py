@@ -1,5 +1,5 @@
 #
-from api import MessageService
+from api import MessageServiceApi
 from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
@@ -11,7 +11,7 @@ class MessageService(object):
 
     def startup(self):
         print('启动Thrift消息服务器')
-        processor = MessageService.Processor(self)
+        processor = MessageServiceApi.Processor(self)
         transport = TSocket.TServerSocket('localhost', '9090')
         tfactory = TTransport.TFramedTransportFactory()
         pfactory = TBinaryProtocol.TBinaryProtocolFactory()
