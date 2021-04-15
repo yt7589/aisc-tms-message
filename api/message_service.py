@@ -1,4 +1,9 @@
 #
+from api import MessageService
+from thrift.transport import TSocket
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
+from thrift.server import TServer
 
 class MessageService(object):
     def __init__(self):
@@ -6,6 +11,14 @@ class MessageService(object):
 
     def startup(self):
         print('启动Thrift消息服务器')
+        processor = MessageService.Processor(self)
+        transport = TSocket.TServerSocket('localhost', '9090')
+        tfactory = TTransport.TFramedTransportFactory()
+        pfactory = TBinaryProtocol.TBinaryProtocolFactory()
+        server = TServer.TSimpleServer(processor, transport, tfactory, pfactory)
+        print('startup...')
+        server.serve()
+        print('Bye')
 
     def send_sms(self, mobile_phone, msg):
         """
