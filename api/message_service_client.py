@@ -1,5 +1,6 @@
 #
 from thrift.transport import TSocket
+from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
 class MessageServiceClient(object):
@@ -10,6 +11,7 @@ class MessageServiceClient(object):
         host = 'localhost'
         port = '9900'
         socket = TSocket.TSocket(host, port)
+        transport = TTransport.TFramedTransport(socket)
         protocol = TBinaryProtocol(transport)
         client = MessageServiceApi.Client(protocol)
         transport.open()
